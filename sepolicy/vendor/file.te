@@ -9,6 +9,7 @@ type proc_oppo_fp, fs_type, proc_type;
 
 # Camera
 type persist_camera_file, file_type;
+type debugfs_system_ion_heap, fs_type, debugfs_type;
 
 # Devinfo
 type proc_devinfo, fs_type, proc_type;

@@ -15,3 +15,6 @@ genfscon proc /devinfo        u:object_r:proc_devinfo:s0
 
 # Oppo display
 genfscon sysfs /kernel/oppo_display      u:object_r:sysfs_oppo_display:s0
+
+# Camera
+genfscon debugfs /ion/heaps/system                    u:object_r:debugfs_system_ion_heap:s0
