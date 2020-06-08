@@ -294,7 +294,7 @@
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">false</bool>
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
     <!-- Control whether the always on display mode is enabled by default. This value will be used
         during initialization when the setting is still null. -->
@@ -599,6 +599,8 @@
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">true</bool>
 
+    <integer name="config_shift_interval">40</integer>
+
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">true</bool>
 
@@ -620,4 +622,7 @@
     <string-array name="config_disabledComponents" translatable="false">
 	<item>com.google.android.googlequicksearchbox/com.google.android.hotword.service.HotwordService</item>
     </string-array>
+    
+    <!-- Device has FOD -->
+    <bool name="config_needCustomFODView">true</bool>
 </resources>
