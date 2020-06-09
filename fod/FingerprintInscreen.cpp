@@ -42,15 +42,6 @@ inline static void set(const std::string& path, const T& value) {
     LOG(INFO) << "wrote path: " << path << ", value: " << value << "\n";
 }
 
-template <typename T>
-static T get(const std::string& path, const T& def) {
-    std::ifstream file(path);
-    T result;
-
-    file >> result;
-    return file.fail() ? def : result;
-}
-
 } // anonymous namespace
 
 namespace vendor {
@@ -88,10 +79,10 @@ Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
     set(DIMLAYER, ON);
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
-        set(HBM, ON);
+        std::this_thread::sleep_for(std::chrono::milliseconds(210));
         if (mFingerPressed) {
-            set(PRESSED, ON); 
+            set(HBM, ON);
+            set(PRESSED, ON);
         }
     }).detach();
     return Void();
