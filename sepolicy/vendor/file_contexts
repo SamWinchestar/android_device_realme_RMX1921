@@ -1,3 +1,7 @@
+# Audio
+/mnt/vendor/persist/audio(/.*)?                                                u:object_r:persist_audio_file:s0
+/proc/asound/card0/codecs(/.*)?                                                u:object_r:proc_audio_file:s0
+
 # Biometrics
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xt    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.oppo\.hardware\.biometrics\.fingerprint@2\.1-service              u:object_r:hal_fingerprint_default_exec:s0
@@ -22,6 +26,7 @@
 
 # Oppo HIDL hals
 /(vendor|system/vendor)/bin/hw/vendor\.oppo\.hardware\.camera\.oppoAlgoProcessService@1\.0-service u:object_r:hal_camera_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.oppo\.hardware\.mmdisplayfeature@1\.0-service               u:object_r:oppo_display_default_exec:s0
 
 # Oppo Partitions
 /dev/block/platform/soc/1d84000.ufshc/by-name/oppodycnvbk                                                u:object_r:modem_efs_partition_device:s0
