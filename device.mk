@@ -188,6 +188,10 @@ PRODUCT_COPY_FILES += \
 TARGET_HAS_FOD := true
 EXTRA_FOD_ANIMATIONS := true
 
+# GApps permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-gapp.xml:system/product/etc/permissions/privapp-permissions-gapp.xml
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
