@@ -158,6 +158,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
+# OMX
+PRODUCT_PROPERTY_OVERRIDES +=  \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
+
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.has_wide_color_display=true \
