@@ -22,6 +22,7 @@
 #include <fstream>
 #include <cmath>
 #include <thread>
+#include <hardware_legacy/power.h>
 
 /* Hardcoded stuffs */
 #define PRESSED "/sys/kernel/oppo_display/notify_fppress"
@@ -87,6 +88,11 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
 }
 
 Return<void> FingerprintInscreen::onPress() {
+    if(get(DOZE_STATUS, OFF)) {
+    acquire_wake_lock(PARTIAL_WAKE_LOCK, LOG_TAG);
+    set(NOTIFY_BLANK_PATH, ON);
+    set(AOD_MODE_PATH, ON);
+    }
     mFingerPressed = true;
     set(DIMLAYER, ON);
     std::thread([this]() {
@@ -99,6 +105,7 @@ Return<void> FingerprintInscreen::onPress() {
 }
 
 Return<void> FingerprintInscreen::onRelease() {
+    release_wake_lock(LOG_TAG);
     mFingerPressed = false;
     set(PRESSED, OFF);
     set(DIMLAYER, OFF);
@@ -106,10 +113,6 @@ Return<void> FingerprintInscreen::onRelease() {
 }
 
 Return<void> FingerprintInscreen::onShowFODView() {
-    if(get(DOZE_STATUS, OFF)) {
-    set(NOTIFY_BLANK_PATH, ON);
-    set(AOD_MODE_PATH, ON);
-    }
     return Void();
 }
 
